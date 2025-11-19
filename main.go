@@ -9,18 +9,22 @@ import (
 // the <icon src="AllIcons.Actions.Execute"/> icon in the gutter and select the <b>Run</b> menu item from here.</p>
 
 func main() {
-	const IMTPower = 2
-	userHeight := 1.8
-	userKg := 100.0
+	var userKg, userHeight float64
 	fmt.Println("Введите свой рост в сантиметрах: ")
 	fmt.Scan(&userHeight)
 	fmt.Println("Введите свой вес: ")
 	fmt.Scan(&userKg)
-	IMT := userKg / math.Pow(userHeight/100, IMTPower)
+	IMT := calculateIMT(userHeight, userKg)
 	outputResult(IMT)
 }
 
 func outputResult(imt float64) {
 	result := fmt.Sprintf("Ваш индекс массы тела: %.0f", imt)
 	fmt.Printf(result)
+}
+
+func calculateIMT(userKg float64, userHeight float64) float64 {
+	const IMTPower = 2
+	IMT := userKg / math.Pow(userHeight/100, IMTPower)
+	return IMT
 }
