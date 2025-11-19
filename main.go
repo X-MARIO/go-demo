@@ -19,9 +19,9 @@ func outputResult(imt float64) {
 	fmt.Printf(result)
 }
 
-func calculateIMT(userKg float64, userHeight float64) float64 {
+func calculateIMT(userKg float64, userHeight float64) (IMT float64) {
 	const IMTPower = 2
-	IMT := userKg / math.Pow(userHeight/100, IMTPower)
+	IMT = userKg / math.Pow(userHeight/100, IMTPower)
 	return IMT
 }
 
