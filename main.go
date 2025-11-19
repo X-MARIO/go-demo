@@ -9,8 +9,9 @@ import (
 // the <icon src="AllIcons.Actions.Execute"/> icon in the gutter and select the <b>Run</b> menu item from here.</p>
 
 func main() {
+	const IMTPower = 2
 	userHeight := 1.8
 	userKg := 100.0
-	IMT := userKg / math.Pow(userHeight, 2)
+	IMT := userKg / math.Pow(userHeight, IMTPower)
 	fmt.Print(IMT)
 }
