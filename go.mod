@@ -1,1 +1,1 @@
-module go-demo
+module go-demo/app-1
