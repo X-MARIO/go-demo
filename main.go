@@ -11,6 +11,10 @@ import (
 func main() {
 	var userKg, userHeight float64 = getUserInput()
 	IMT := calculateIMT(userHeight, userKg)
+	isLean := IMT < 16
+	if isLean {
+		fmt.Println("У вас недостаток веса")
+	}
 	outputResult(IMT)
 }
 
