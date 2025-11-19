@@ -9,11 +9,7 @@ import (
 // the <icon src="AllIcons.Actions.Execute"/> icon in the gutter and select the <b>Run</b> menu item from here.</p>
 
 func main() {
-	var userKg, userHeight float64
-	fmt.Println("Введите свой рост в сантиметрах: ")
-	fmt.Scan(&userHeight)
-	fmt.Println("Введите свой вес: ")
-	fmt.Scan(&userKg)
+	var userKg, userHeight float64 = getUserInput()
 	IMT := calculateIMT(userHeight, userKg)
 	outputResult(IMT)
 }
@@ -27,4 +23,13 @@ func calculateIMT(userKg float64, userHeight float64) float64 {
 	const IMTPower = 2
 	IMT := userKg / math.Pow(userHeight/100, IMTPower)
 	return IMT
+}
+
+func getUserInput() (float64, float64) {
+	var userHeight, userKg float64
+	fmt.Println("Введите свой рост в сантиметрах: ")
+	fmt.Scan(&userHeight)
+	fmt.Println("Введите свой вес: ")
+	fmt.Scan(&userKg)
+	return userHeight, userKg
 }
